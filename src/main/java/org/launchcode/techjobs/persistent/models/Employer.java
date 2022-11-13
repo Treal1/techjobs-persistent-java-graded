@@ -4,10 +4,10 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-// added @Entity and a no-arg constructor required for Hibernate to create an object.
+// 4- added @Entity and a no-arg constructor required for Hibernate to create an object.
 @Entity
 public class Employer extends AbstractEntity {
-    //Add the field for location with validation that ensures it is not empty and has a reasonable length. In addition, add public accessor methods to Employer.
+    //5- Add the field for location with validation that ensures it is not empty and has a reasonable length. In addition, add public accessor methods to Employer.
     @NotBlank(message = "Location is required!")
     @Size(min=3, max=100)
     private String location;

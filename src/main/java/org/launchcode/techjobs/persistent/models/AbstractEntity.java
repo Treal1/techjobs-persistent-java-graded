@@ -1,5 +1,8 @@
 package org.launchcode.techjobs.persistent.models;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -10,7 +13,7 @@ import java.util.Objects;
 @MappedSuperclass
 public abstract class AbstractEntity {
 
-    //2- Since all of the subclasses of AbstractEntity will be entities themselves, add the @Idand @GeneratedValue annotations to the field id.
+    //2- Since the subclasses of AbstractEntity will be entities themselves, add the @Idand @GeneratedValue annotations to the field id.
     @Id
     @GeneratedValue
     private int id;
