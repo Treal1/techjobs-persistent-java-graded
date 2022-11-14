@@ -1,7 +1,12 @@
 -- Part 1: Test it with SQL
 DESCRIBE job;
 -- Part 2: Test it with SQL
+--list the names of the employers in St. Louis City. Do NOT specify an ordering for the query results
 SELECT name FROM employer WHERE location = "St. Louis City";
 -- Part 3: Test it with SQL
-
+DROP TABLE job;
 -- Part 4: Test it with SQL
+SELECT * FROM skill
+LEFT JOIN job_skills ON skill.id = job_skills.skills_id
+WHERE job_skills.jobs_id IS NOT NULL
+ORDER BY name ASC;

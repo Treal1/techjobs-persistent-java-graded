@@ -4,6 +4,12 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+
+import java.util.ArrayList;
+import java.util.List;
+
 // 4- added @Entity and a no-arg constructor required for Hibernate to create an object.
 @Entity
 public class Employer extends AbstractEntity {
@@ -12,6 +18,12 @@ public class Employer extends AbstractEntity {
     @Size(min=3, max=100)
     private String location;
 
+    //Add a jobs Field to Employer
+    @OneToMany
+    @JoinColumn(name = "employer_id")
+    private List<Job> jobs = new ArrayList<>();
+
+    public Employer(){}
     public String getLocation() {
         return location;
     }

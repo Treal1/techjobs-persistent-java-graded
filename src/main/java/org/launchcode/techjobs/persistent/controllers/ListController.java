@@ -9,6 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
+import org.launchcode.techjobs.persistent.models.data.SkillRepository;
+
+
 import java.util.HashMap;
 
 /**
@@ -18,6 +22,15 @@ import java.util.HashMap;
 @RequestMapping(value = "list")
 public class ListController {
 
+    //allows us to access data inside EmployerRepository
+    @Autowired
+    private EmployerRepository employerRepository;
+
+    //allows us to access data inside SkillRepository
+    @Autowired
+    private SkillRepository skillRepository;
+
+    //access data in JobRepository
     @Autowired
     private JobRepository jobRepository;
 
@@ -33,7 +46,9 @@ public class ListController {
 
     @RequestMapping("")
     public String list(Model model) {
-
+        //lists all of the employers and skills by category
+        model.addAttribute("skills", skillRepository.findAll());
+        model.addAttribute("employers", employerRepository.findAll());
         return "list";
     }
 

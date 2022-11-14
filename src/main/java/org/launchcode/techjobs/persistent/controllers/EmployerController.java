@@ -37,10 +37,11 @@ public class EmployerController {
             return "employers/add";
         }
 
+        employerRepository.save(newEmployer);
         return "redirect:";
     }
 
-    // The following code processes our add employer form and creates and saves a new employer
+    // The following shows employers by their id
     @GetMapping("view/{employerId}")
     public String displayViewEmployer(Model model, @PathVariable int employerId) {
 //3- Replace this using the .findById() method with the right argument to look for the given employer object from the data layer.
